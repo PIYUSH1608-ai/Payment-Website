@@ -1,26 +1,42 @@
+<<<<<<< HEAD
 * {
+=======
+*{
+>>>>>>> 65f2b9b (added dashboard)
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+<<<<<<< HEAD
 body {
+=======
+body{
+>>>>>>> 65f2b9b (added dashboard)
     font-family: Arial, sans-serif;
     background-color: #f3f5fa;
 }
 
+<<<<<<< HEAD
 
 /* MAIN DASHBOARD */
 
 .dashboard {
+=======
+.dashboard{
+>>>>>>> 65f2b9b (added dashboard)
     display: flex;
     min-height: 100vh;
 }
 
+<<<<<<< HEAD
 
 /* LEFT SIDEBAR */
 
 .sidebar {
+=======
+.sidebar{
+>>>>>>> 65f2b9b (added dashboard)
     width: 240px;
     background: linear-gradient(180deg, #17102e, #261449);
     color: white;
@@ -28,6 +44,7 @@ body {
     flex-shrink: 0;
 }
 
+<<<<<<< HEAD
 .logo {
     text-align: center;
     color: #55e6c1;
@@ -37,19 +54,27 @@ body {
 }
 
 .sidebar nav {
+=======
+.sidebar nav{
+>>>>>>> 65f2b9b (added dashboard)
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
+<<<<<<< HEAD
 
 /* SIDEBAR BUTTONS */
 
 .nav-btn {
+=======
+.nav-btn{
+>>>>>>> 65f2b9b (added dashboard)
     width: 100%;
     padding: 14px 12px;
     border: none;
     border-radius: 8px;
+<<<<<<< HEAD
 
     background: transparent;
     color: #d5cfe5;
@@ -57,31 +82,50 @@ body {
     text-align: left;
     font-size: 15px;
 
+=======
+    background: transparent;
+    color: #d5cfe5;
+    text-align: left;
+    font-size: 15px;
+>>>>>>> 65f2b9b (added dashboard)
     cursor: pointer;
     transition: 0.3s;
 }
 
+<<<<<<< HEAD
 .nav-btn:hover {
+=======
+.nav-btn:hover{
+>>>>>>> 65f2b9b (added dashboard)
     background-color: #453064;
     color: white;
     transform: translateX(5px);
 }
 
+<<<<<<< HEAD
 .nav-btn.active {
+=======
+.nav-btn.active{
+>>>>>>> 65f2b9b (added dashboard)
     background: #55e6c1;
     color: #17102e;
     font-weight: bold;
 }
 
+<<<<<<< HEAD
 
 /* MAIN CONTENT AREA */
 
 .main-content {
+=======
+.main-content{
+>>>>>>> 65f2b9b (added dashboard)
     flex: 1;
     padding: 30px 35px;
     min-width: 0;
 }
 
+<<<<<<< HEAD
 
 /* TOP NAVIGATION */
 
@@ -108,24 +152,61 @@ body {
 /* PAGE CONTENT */
 
 .page {
+=======
+.topbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0 25px;
+    border-bottom: 1px solid grey;
+    margin-bottom: 30px;
+}
+
+.topbar h2{
+    color: #21183b;
+}
+
+.profile{
+    color:black;
+    cursor: pointer;
+}
+.profile:hover{
+    color:rgb(45, 10, 242);
+}
+
+.page{
+>>>>>>> 65f2b9b (added dashboard)
     display: none;
     animation: fadeIn 0.4s ease;
 }
 
+<<<<<<< HEAD
 .page.active {
     display: block;
 }
 
 .page h1 {
+=======
+.page.active{
+    display: block;
+}
+
+.page h1{
+>>>>>>> 65f2b9b (added dashboard)
     color: #21183b;
     margin-bottom: 12px;
 }
 
+<<<<<<< HEAD
 .page p {
+=======
+.page p{
+>>>>>>> 65f2b9b (added dashboard)
     color: #777;
     margin-bottom: 25px;
 }
 
+<<<<<<< HEAD
 
 /* CARDS */
 
@@ -148,15 +229,39 @@ body {
 }
 
 .card:hover {
+=======
+.cards{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin: 30px 0;
+}
+
+.card{
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 15em;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    transition: 0.3s;
+}
+
+.card:hover{
+>>>>>>> 65f2b9b (added dashboard)
     transform: translateY(-6px);
     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
 }
 
+<<<<<<< HEAD
 .card h3 {
+=======
+.card h3{
+>>>>>>> 65f2b9b (added dashboard)
     color: #777;
     margin-bottom: 15px;
 }
 
+<<<<<<< HEAD
 .card h2 {
     color: #21183b;
 }
@@ -165,12 +270,20 @@ body {
 /* QUICK ACTION BUTTONS */
 
 .quick-actions {
+=======
+.card h2{
+    color: #21183b;
+}
+
+.quick-actions{
+>>>>>>> 65f2b9b (added dashboard)
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
     margin-top: 20px;
 }
 
+<<<<<<< HEAD
 .quick-actions button,
 .page button {
     padding: 13px 20px;
@@ -188,15 +301,33 @@ body {
 
 .quick-actions button:hover,
 .page button:hover {
+=======
+.quick-actions button{
+    padding: 13px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #55e6c1;
+    color: #17102e;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.quick-actions button:hover{
+>>>>>>> 65f2b9b (added dashboard)
     background: #36cba5;
     transform: translateY(-3px);
 }
 
+<<<<<<< HEAD
 
 /* ANIMATION */
 
 @keyframes fadeIn {
 
+=======
+@keyframes fadeIn {
+>>>>>>> 65f2b9b (added dashboard)
     from {
         opacity: 0;
         transform: translateY(10px);
@@ -206,6 +337,7 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
+<<<<<<< HEAD
 
 }
 
@@ -214,6 +346,11 @@ body {
 
 @media (max-width: 700px) {
 
+=======
+}
+
+@media (max-width: 700px) {
+>>>>>>> 65f2b9b (added dashboard)
     .sidebar {
         width: 175px;
         padding: 20px 10px;
@@ -232,5 +369,8 @@ body {
         flex-wrap: wrap;
         gap: 15px;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 65f2b9b (added dashboard)
 }
