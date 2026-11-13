@@ -2,10 +2,24 @@ import express from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import db from '../db.js';
+import {sendOtpEmail} from '../utils/sendOtp.js';
 
 const router = express.Router();
 
 
+router.post('/send_otp' , async (req, res) => {
+    try{
+        const {email} = req.body;
+        if(!email){
+            return res.sendStatus(400);
+        }
+        await sendOtpEmail(email);
+        res.status(200).send({message: "Successfully sent OTP"});
+    } catch (err){
+        res.status(500).send({message: "Server side error"});
+    }
+})
+// 1. Verify OTP
 router.post('/verify_otp', async (req, res) => {
     try {
     const { email, entered_otp } = req.body;
