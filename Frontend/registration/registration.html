@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verify Email - Internet Banking</title>
+  <link rel="stylesheet" href="registration.css" />
+</head>
+<body>
+  <div class="register-container">
+    <div class="register-card">
+      <div class="register-header">
+        <h2>Verify Identity</h2>
+        <p>Step 1 of 2: Enter your name and email to proceed</p>
+      </div>
+
+      <form class="register-form" onsubmit="event.preventDefault();">
+        <div class="form-group">
+          <label for="fullname">Full Name</label>
+          <input type="text" id="fullname" name="fullname" placeholder="Full Name" required autocomplete="name" />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="Email Address" required autocomplete="email" />
+        </div>
+
+        <button type="button" class="register-btn" onclick="verify_otp()">
+          Verify Email ID
+        </button>
+      </form>
+
+      <div class="register-footer">
+        Already have an account? <a href="#login">Log in</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="verify_otp.js"></script>
+</body>
+</html>
