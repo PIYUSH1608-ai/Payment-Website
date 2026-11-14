@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/Dashboard/dashboard.css">
+        <link rel="stylesheet" href="dashboard.css">
     </head>
     <body>
         <div class="dashboard">
@@ -13,9 +13,11 @@
                         🏠 Overview
                     </button>
 
-                    <button class="nav-btn" data-page="send">
-                        💸 Send Money
-                    </button>
+                    <a href="../transaction/transaction.html">
+                        <button class="nav-btn" data-page="send">
+                            💸 Send Money
+                        </button>
+                    </a>
 
                     <button class="nav-btn" data-page="transactions">
                         📜 Transactions History
@@ -52,11 +54,6 @@
                         <button>Send Money</button>
                         <button>Account Statement</button>
                     </div>
-                </section>
-
-                <section class="page" id="send">
-                    <h1>Send Money</h1>
-                    <p>Make payments quickly and securely.</p>
                 </section>
 
                 <section class="page" id="transactions">
