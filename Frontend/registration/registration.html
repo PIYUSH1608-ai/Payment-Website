@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Verify Email - Internet Banking</title>
-  <link rel="stylesheet" href="registration.css" />
+  <link rel="stylesheet" href="/registration/registration.css" />
 </head>
 <body>
   <div class="register-container">
@@ -14,7 +14,7 @@
         <p>Step 1 of 2: Enter your name and email to proceed</p>
       </div>
 
-      <form class="register-form" onsubmit="event.preventDefault();">
+      <form class="register-form">
         <div class="form-group">
           <label for="fullname">Full Name</label>
           <input type="text" id="fullname" name="fullname" placeholder="Full Name" required autocomplete="name" />
@@ -31,11 +31,11 @@
       </form>
 
       <div class="register-footer">
-        Already have an account? <a href="#login">Log in</a>
+        Already have an account? <a href="/Login/login.html">Log in</a>
       </div>
     </div>
   </div>
 
-  <script src="../main.js"></script>
+  <script src="/main.js"></script>
 </body>
 </html>

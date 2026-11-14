@@ -18,10 +18,10 @@ export function generateOtp() {
 
 export async function sendOtpEmail(toEmail) {
     const otp=generateOtp();
-
-    const {result} = await db.execute(`INSERT INTO Otp_store(email,otp) VALUES (?,?)`,[toEmail,otp]);
+    const [result] = await db.execute(`INSERT INTO Otp_store (registered_email, original_otp) VALUES (?, ?) ON DUPLICATE KEY UPDATE original_otp = VALUES(original_otp)`,[toEmail, otp]
+    );
     const mailOptions = {
-    from: `"Payment Website" <${process.env.EMAIL_USER}>`,
+    from: `"Payment Website" <${process.env.EMAIL_ID}>`,
     to: toEmail,
     subject: "Your Verification OTP Code",
     html: `

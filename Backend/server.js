@@ -2,10 +2,9 @@ import express from "express"
 import path, {dirname} from "path"
 import { fileURLToPath } from "url"
 import authRoutes from './routes/authRoutes.js'
-import todoRoutes from "./routes/todoRoutes.js"
 import authMiddleware from "./middleware/authMiddleware.js"
 const app=express()
-//install express bycrptjs jsonwebtoken for authentication
+//install express bcryptjs jsonwebtoken for authentication
 
 const PORT=process.env.PORT || 5000//Syntax to get the PORT value present at .env else use PORT 5000
 
@@ -23,7 +22,7 @@ app.use(express.static(path.join(__dirname,'../Frontend')))
 //serving upto HTML file from the Frontend directory
 app.get("/",(req,res)=>{
     //This sendFile wants complete path like from C:,
-    res.sendFile(path.join(__dirname,"Frontend","index.html"))
+    res.sendFile(path.join(__dirname,"..","Frontend","/registration/registration.html"))
 })
 
 
@@ -31,7 +30,6 @@ app.get("/",(req,res)=>{
 //this .use is mainly used in middleware
 app.use("/auth",authRoutes)
 
-app.use("/todos",authMiddleware,todoRoutes)
 app.listen(PORT,()=>{
     console.log(`Server has started at PORT:${PORT}`)
 })

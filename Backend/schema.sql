@@ -1,9 +1,9 @@
---Create Database if not exist
-CREATE DATABASE IF NOT EXISTS payment_db
+
+CREATE DATABASE IF NOT EXISTS payment_web_db
 CHARACTER SET utf8mb4
 COLLATE utf8mb4_0900_ai_ci;
 
-USE payment_db;
+USE payment_web_db;
 
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -26,8 +26,8 @@ CREATE TABLE IF NOT EXISTS transactions (
     FOREIGN KEY (receiver_id) REFERENCES users(id) ON DELETE RESTRICT
 );
 
-CREATE TABLE IF NOR EXISTS Otp_store (
+CREATE TABLE IF NOT EXISTS Otp_store (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(150) NOT NULL UNIQUE,
+    registered_email VARCHAR(150) NOT NULL UNIQUE,
     original_otp INT NOT NULL
 )
