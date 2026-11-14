@@ -64,6 +64,32 @@ async function submit_details(){
     if(result.token){
         const token = result.token;
         localStorage.setItem("token",token);
+        window.location.href = "./Dashboard/dashboard.html"
     }
     window.location.href = "./Dashboard/dashboard.html"
 }
+
+async function login(){
+    const email=document.querySelector("#login_email").value;
+    const password=document.querySelector("#login_password").value;
+    const response = await fetch(auth_key+"/auth/login",{
+        method: "POST",
+        headers: {
+            "Content-Type": "application.json"
+        },
+        body: json.stringify({email:email,password:password})
+    });
+    const result = response.json();
+    if(!response.ok){
+        alert(result.message);
+        return;
+    }
+    if(result.token){
+        const token = result.token;
+        localStorage.setItem("token",token);
+        window.location.href = "./Dashboard/dashboard.html"
+    }
+}
+
+
+
