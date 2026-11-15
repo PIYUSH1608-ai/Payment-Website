@@ -63,8 +63,9 @@ transactionRouter.post("/send_money",async (req,res)=>{
 
 transactionRouter.get("/history",async (req,res)=>{
     try{
-        const [history] = await db.execute("SELECT sender_id, sender_email, receiver_id, receiver_email, amount, created_at FROM transactions WHERE sender_id = ? OR receiver_id = ?",[req.userId,req.userId]);
-        return res.status(200).json({history:history});
+        const [user_email] = await db.execute("SELECT email FROM users WHERE id = ?", [req.userId]);
+        const [history] = await db.execute("SELECT sender_id, sender_email, receiver_id, receiver_email, amount, created_at FROM transactions WHERE sender_id = ? OR receiver_id = ? ORDER BY created_at DESC",[req.userId,req.userId]);        
+        return res.status(200).json({history:history,user_email:user_email[0].email});
     }catch(error){
         console.error("Error fetching account details:", error);
         return res.status(500).json({

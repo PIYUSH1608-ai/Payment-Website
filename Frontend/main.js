@@ -217,18 +217,33 @@ async function getTransactionHistory(){
         return;
     }
     const transactions = result.history;
+    const user_email = result.user_email;
 
     console.log(transactions);
     
     const render_list = `
-        ${transactions.map((item)=>(
-            `<li>
-                <h3>${item.sender_id,item.sender_email}</h3>
-                <h3>${item.receiver_id,item.receiver_email}</h3>
-                <h2>${item.amount}</h2>
-                <p>${item.created_at}</p>
-            </li>`
-            )).join(" ")}
+        ${transactions.map((item)=>{
+            if(item.sender_email == user_email){
+                return(
+                `<li>
+                    <h3>Sender ID: ${item.sender_email}</h3>
+                    <h3>Receiver ID: ${item.receiver_email}</h3>
+                    <h2>${item.amount} ↗️</h2>
+                    <p>${item.created_at}</p>
+                </li>`
+                )
+            }else{
+                return(
+                `<li>
+                    <h3>Sender ID: ${item.sender_email}</h3>
+                    <h3>Receiver ID: ${item.receiver_email}</h3>
+                    <h2>${item.amount} ↙️</h2>
+                    <p>${item.created_at}</p>
+                </li>`
+                )
+            }
+
+        }).join(" ")}
             `
     history_list.innerHTML=render_list;
 }
