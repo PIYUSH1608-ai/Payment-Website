@@ -36,16 +36,17 @@
                     <div class="profile">
                         Leo
                     </div>
+                    <button id="logout_button" onclick="logout()">Log Out</button>
                 </header>
 
                 <section class="page active" id="overview">
-                    <h1>Welcome, Leo!</h1>
+                    <h1>Welcome, <span class="profile">Leo</span>!</h1>
                     <p>Here's your banking overview.</p>
 
                     <div class="cards">
                         <div class="card">
                             <h3>Total Balance</h3>
-                            <h2>₹50,000</h2>
+                            <h2 id="balance_box">₹50,000</h2>
                         </div>
                     </div>
 
@@ -58,6 +59,9 @@
 
                 <section class="page" id="transactions">
                     <h1>Transactions history</h1>
+                    <ul id="history_list">
+
+                    </ul>
                 </section>
 
                 <section class="page" id="settings">
@@ -72,6 +76,7 @@
             </main>
         </div>
 
-        <script src="script.js"></script>
+        <script src="../main.js"></script>
+        <script src="./script.js"></script>
     </body>
 </html>

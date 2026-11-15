@@ -20,6 +20,8 @@ CREATE TABLE IF NOT EXISTS transactions (
     id INT AUTO_INCREMENT PRIMARY KEY,
     sender_id INT NOT NULL,
     receiver_id INT NOT NULL,
+    sender_email VARCHAR(150),
+    receiver_email VARCHAR(150),
     amount INT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (sender_id) REFERENCES users(id) ON DELETE RESTRICT,
@@ -30,4 +32,4 @@ CREATE TABLE IF NOT EXISTS Otp_store (
     id INT AUTO_INCREMENT PRIMARY KEY,
     registered_email VARCHAR(150) NOT NULL UNIQUE,
     original_otp INT NOT NULL
-)
+);

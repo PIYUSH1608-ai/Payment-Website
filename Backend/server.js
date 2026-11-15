@@ -2,6 +2,7 @@ import express from "express"
 import path, {dirname} from "path"
 import { fileURLToPath } from "url"
 import authRoutes from './routes/authRoutes.js'
+import transactionRoutes from './routes/transactionRoutes.js'
 import authMiddleware from "./middleware/authMiddleware.js"
 const app=express()
 //install express bcryptjs jsonwebtoken for authentication
@@ -29,6 +30,7 @@ app.get("/",(req,res)=>{
 //routes
 //this .use is mainly used in middleware
 app.use("/auth",authRoutes)
+app.use("/transactions",authMiddleware,transactionRoutes)
 
 app.listen(PORT,()=>{
     console.log(`Server has started at PORT:${PORT}`)

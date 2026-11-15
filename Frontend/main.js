@@ -132,3 +132,115 @@ async function login() {
         alert("Network error during login.");
     }
 }
+
+function logout() {
+  localStorage.removeItem("token");
+  window.location.href = "/Login/login.html";
+}
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////
+
+async function getAccountData() {
+    
+    const token=localStorage.token;
+    const profile = document.querySelectorAll(".profile");
+    const balance_box = document.querySelector("#balance_box");  
+    const response = await fetch(auth_key + "transactions/accountDetails", {
+        method: "GET",
+        headers: {
+            "Authorization": token
+            }
+        }
+    );
+    const result = await response.json();
+    
+    if(!response.ok){
+        alert(result.message);
+        return;
+    }
+    
+    profile.forEach((item)=>{
+        item.innerHTML=result.full_name
+    });
+    balance_box.innerHTML=result.amount;
+}
+
+
+
+async function make_payment(){
+    const token=localStorage.token;
+    const receiver_email = document.querySelector("#email").value;
+    const transferred_amount = document.querySelector("#amount").value;
+    const password = document.querySelector("#password").value;
+    const response = await fetch(auth_key+"transactions/send_money",{
+        method: "POST",
+        headers: {
+            "Authorization": token,
+            "Content-Type": "Application/json"
+        },
+        body: JSON.stringify({receiver_email:receiver_email,transferred_amount:transferred_amount,password:password})
+    });
+    const result = await response.json();
+    if(!response.ok){
+        alert(result.message);
+        return;
+    }else{
+        alert(result.message);
+        window.location.href = "/Dashboard/dashboard.html";
+    }
+}
+
+
+
+async function getTransactionHistory(){
+    const token = localStorage.token;
+    const history_list_element = document.querySelector("#history_list");
+    const response = await fetch(auth_key+"transactions/history",({
+        method: "GET",
+        headers: {
+            "Authorization": token
+        }
+    }));
+    const result = await response.json();
+    if(!response.ok){
+        alert(result.message);
+        return;
+    }
+    const transactions = result.history;
+
+    console.log(transactions);
+    
+    const render_list = `
+        ${transactions.map((item)=>(
+            `<li>
+                <h3>${item.sender_id,item.sender_email}</h3>
+                <h3>${item.receiver_id,item.receiver_email}</h3>
+                <h2>${item.amount}</h2>
+                <p>${item.created_at}</p>
+            </li>`
+            )).join(" ")}
+            `
+    history_list.innerHTML=render_list;
+}
+
+
+
+
+// Auto-initialize on dashboard.html
+document.addEventListener("DOMContentLoaded", () => {
+    // Check if on dashboard page
+    if (document.querySelector(".dashboard")) {
+        getAccountData();
+        getTransactionHistory();
+    }
+});

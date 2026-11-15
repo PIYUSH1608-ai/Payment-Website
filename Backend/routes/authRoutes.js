@@ -4,10 +4,10 @@ import jwt from 'jsonwebtoken';
 import db from '../db.js';
 import {sendOtpEmail} from '../utils/sendOtp.js';
 
-const router = express.Router();
+const authRouter = express.Router();
 
 
-router.post('/send_otp' , async (req, res) => {
+authRouter.post('/send_otp' , async (req, res) => {
     try{
         const {email} = req.body;
         if(!email){
@@ -21,7 +21,7 @@ router.post('/send_otp' , async (req, res) => {
     }
 })
 // 1. Verify OTP
-router.post('/verify_otp', async (req, res) => {
+authRouter.post('/verify_otp', async (req, res) => {
     try {
     const { email, entered_otp } = req.body;
     if (!email || !entered_otp) {
@@ -52,7 +52,7 @@ router.post('/verify_otp', async (req, res) => {
 });
 
 // 2. Register a new user: /auth/register
-router.post('/register', async (req, res) => {
+authRouter.post('/register', async (req, res) => {
     const { fullname, email, account_no, debit_no, password } = req.body;
 
     if (!fullname || !email || !password) {
@@ -79,7 +79,7 @@ router.post('/register', async (req, res) => {
 });
 
 // 3. Login user: /auth/login
-router.post('/login', async (req, res) => {
+authRouter.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
     try {
@@ -106,4 +106,4 @@ router.post('/login', async (req, res) => {
     }
 });
 
-export default router;
+export default authRouter;
